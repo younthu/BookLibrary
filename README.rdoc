@@ -2,19 +2,20 @@
 
 BookLibrary is a Ruby on Rails application to manage a library of items that are checked out and in by users. 
 
-Application basics:
+## Application basics:
 
 * Ruby version: <tt>2.1.2</tt>
 * Rails version: <tt>4.1.8</tt>
 
-* Configuration
+## Configuration
+
 - Postgres Database
 - Sendgrid for ActionMailer (sendgrid gem) https://github.com/stephenb/sendgrid
 - Elasticsearch for queries (searchkick gem) https://github.com/ankane/searchkick
 
-* Database creation - to set up the database:
+## Database creation - to set up the database:
 - run <tt>rake db:create</tt>
 - then <tt>rake db:migrate</tt>
 
-* Deployment instructions
+## Deployment instructions
 - keep private keys in a <tt>local_env.yml</tt> file in the config directory (do not include in commits)
