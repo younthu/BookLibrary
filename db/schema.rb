@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150118022601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "books", force: true do |t|
     t.string   "title"
