@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://mirrors.aliyun.com/rubygems/'
 
 ruby '2.1.2'
 gem 'rails', '~> 4.1'
-
+gem 'unicorn'
 gem 'amazon-ecs'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -24,6 +24,10 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
+  #
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'spring'

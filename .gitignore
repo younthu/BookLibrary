@@ -20,3 +20,15 @@ config/local_env.yml
 *.rdb
 
 coverage/*
+
+
+/config/application.yml
+/config/database.yml
+/config/secrets.yml
+
+
+/config/deploy.rb
+/config/deploy
+/config/unicorn
+/Capfile
+/.capistrano
