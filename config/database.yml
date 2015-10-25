@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: BookLibrary_development
+  database: ilibrary_dev
 
 test:
   <<: *default
-  database: BookLibrary_test
+  database: ilibrary_test
 
 production:
   <<: *default
-  database: BookLibrary_production
+  database: ilibrary_production
   username: BookLibrary
   password: <%= ENV['BOOKLIBRARY_DATABASE_PASSWORD'] %>

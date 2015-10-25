@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'nationbuilder-rb'
 gem 'newrelic_rpm'
-#gem 'pg'
+gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.3'
 gem 'searchkick'
@@ -23,7 +23,7 @@ gem 'thin'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 #gem 'mysql2', '~>0.3.13'
-gem 'mysql2', '~> 0.3.18'
+#gem 'mysql2', '~> 0.3.18'
 
 group :development do
   gem 'capistrano-rails'
