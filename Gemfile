@@ -22,7 +22,7 @@ gem 'sendgrid'
 gem 'thin'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'mysql2'
+gem 'mysql2', '~>0.4.1'
 
 group :development do
   gem 'capistrano-rails'

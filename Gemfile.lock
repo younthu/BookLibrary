@@ -284,7 +284,7 @@ DEPENDENCIES
   fuubar
   jquery-rails
   kaminari
-  mysql2
+  mysql2 (~> 0.4.1)
   nationbuilder-rb
   newrelic_rpm
   pry-rails
