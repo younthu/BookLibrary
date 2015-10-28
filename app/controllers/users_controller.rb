@@ -28,32 +28,34 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      Nb::People.add_tag(@user.email, 'Library_account_active')
+      #Nb::People.add_tag(@user.email, 'Library_account_active')
       flash[:notice] = 'User saved'
       redirect_to users_admin_index_path
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = 'There\'s an error - please check the required fields' + @user.errors.full_messages[0]
+      puts @user.errors
       redirect_to new_users_admin_path
     end
   end
 
   def make_admin
     @user.make_admin
-    Nb::People.add_tag(@user.email, 'Library_Admin')
+    #FIXME: bring Nb back
+    #Nb::People.add_tag(@user.email, 'Library_Admin')
     flash[:notice] = "#{@user.name} is now an admin"
     redirect_to users_admin_index_path
   end
 
   def remove_admin
     @user.remove_admin
-    Nb::People.remove_tag(@user.email, 'Library_Admin')
+    #Nb::People.remove_tag(@user.email, 'Library_Admin')
     flash[:notice] = "#{@user.name} is no longer an admin"
     redirect_to users_admin_index_path
   end
 
   def destroy
-    Nb::People.remove_tag(@user.email, 'Library_account_active')
-    Nb::People.add_tag(@user.email, 'Library_account_deleted')
+    #Nb::People.remove_tag(@user.email, 'Library_account_active')
+    #Nb::People.add_tag(@user.email, 'Library_account_deleted')
     @user.destroy
     flash[:notice] = 'User has been deleted'
     redirect_to users_admin_index_path
@@ -63,7 +65,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
-    @profile_image = Nb::People.find_signup_image(@user.email)
+    #puts "trying to find " + @user.email
+    #FIXME: bring Nb back by apply NATION_SLUG and NATION_TOKEN
+    #@profile_image = Nb::People.find_signup_image(@user.email)
   end
 
   def user_params
