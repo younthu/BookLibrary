@@ -17,23 +17,18 @@
     </blockquote>
   </div>
   <div class="col-md-4 text-center">
-
-    <%# FIXME: bring image link back along with AmazonBook %>
-     <%# if @links.image_link %>
-      <%#= image_tag @links.image_link %>
-    <%# else %>
+    <% if @links.image_link %>
+      <%= image_tag @links.image_link %>
+    <% else %>
       <%= image_tag "http://www.speakers-pro.com/wp-content/uploads/2014/04/no-cover-placeholder.jpg" %>
-    <%# end %>
+    <% end %>
     <h5>ISBN: <%= @book.isbn %></h5>
-    <%# if @links.reviews_link %>
-      <h5><a href=
-        <%#= @links.reviews_link %>
-        target='new_window'> Reviews</a></h5>
-    <%# end %>
-    <%# if @links.marketplace_link %>
-      <h5><a href= <%#= @links.marketplace_link %> target='new_window'>Buy on Amazon</a></h5>
-    <%# end %>
-
+    <% if @links.reviews_link %>
+      <h5><a href= <%= @links.reviews_link %> target='new_window'> Reviews</a></h5>
+    <% end %>
+    <% if @links.marketplace_link %>
+      <h5><a href= <%= @links.marketplace_link %> target='new_window'>Buy on Amazon</a></h5>
+    <% end %>
     <% if @book.owner %>
     <h5><%= link_to @book.owner.name, users_admin_path(@book.owner) %> contributed this book to the library</h5>
     <% end %>

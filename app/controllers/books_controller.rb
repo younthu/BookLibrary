@@ -88,7 +88,9 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find(params[:id])
-    @links = AmazonBook.search_by_isbn(@book.isbn)
+
+    #FIXME:bring AmazonBook back by request service token
+    #@links = AmazonBook.search_by_isbn(@book.isbn)
     @borrower = @book.borrower
   end
 
