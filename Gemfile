@@ -22,6 +22,7 @@ gem 'sendgrid'
 gem 'thin'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise-i18n'
 #gem 'mysql2', '~>0.3.13'
 #gem 'mysql2', '~> 0.3.18'
 
