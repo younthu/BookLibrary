@@ -16,8 +16,8 @@
   </td>
   <td class="text-center">
   <div class="btn-group">
-    <%= link_to 'Edit', edit_users_admin_path(user), class: 'btn btn-default' %>
-    <%= link_to 'Delete', users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    <%= link_to t('edit'), edit_users_admin_path(user), class: 'btn btn-default' %>
+    <%= link_to t('delete'), users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
   </div>
   </td>
 </tr>

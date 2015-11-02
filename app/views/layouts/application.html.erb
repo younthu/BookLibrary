@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Book Library</title>
+  <title><%= t('book_library')%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -19,10 +19,10 @@
           <span class="icon-bar" style="background-color: grey"></span>
           <span class="icon-bar" style="background-color: grey"></span>
         </button>
-        <a class="navbar-brand" href="#">Library</a>
+        <a class="navbar-brand" href="#"><%= t('library')%></a>
       </div>
       <% if user_signed_in? %>
-        <%= render :partial => "layouts/user_nav" %> 
+        <%= render :partial => "layouts/user_nav" %>
       <% else %>
         <%= render :partial => "layouts/loggedout_nav" %>
       <% end %>

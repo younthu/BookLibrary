@@ -1,8 +1,8 @@
 <% if current_user.sign_in_count <= 2 %>
-<div class="alert jumbotron text-center fade in row"> 
+<div class="alert jumbotron text-center fade in row">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <div class="col-xs-4 col-md-2"><%= image_tag('giraffe.png') %></div>
-  <div class="col-xs-8 col-md-10"><p>Welcome to the library! Check out all the books that people have contributed below (and on the bookshelf) - to add any books, please get in touch with your friendly community librarian.</p></div>
+  <div class="col-xs-8 col-md-10"><p><%= t('welcome') %></p></div>
 </div>
 <% end %>
 <br>
@@ -14,11 +14,11 @@
 <% end %>
   <table class="table table-hover">
     <thead class="nav nav-tabs">
-      <th role="presentation" class="<%= params['sort'] == 'title' ? 'active' : '' %>" width="15%"><%= sortable "title" %></th>
-      <th role="presentation" class="<%= params['sort'] == 'author_last_name' ? 'active' : '' %>" width="15%"><%= sortable "author_last_name", "Author" %></th>
-      <th width="30%">Description</th>
-      <th>Location</th>
-      <th>Status?</th>
+      <th role="presentation" class="<%= params['sort'] == 'title' ? 'active' : '' %>" width="15%"><%= sortable t('title') %></th>
+      <th role="presentation" class="<%= params['sort'] == 'author_last_name' ? 'active' : '' %>" width="15%"><%= sortable "author_last_name", t('author') %></th>
+      <th width="30%"><%= t('description') %></th>
+      <th><%= t('location') %></th>
+      <th><%= t('status_with_question_mark')%></th>
     </thead>
     <tbody id="books">
       <%= render @books %>

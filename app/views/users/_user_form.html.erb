@@ -3,21 +3,21 @@
     <div class="form-group">
       <%= f.inputs name: "User", class: "text-center" do %>
       <br>
-        <%= f.input :first_name, placeholder: " First Name", label: false, input_html: { class: "form-control" } %>
-        <%= f.input :last_name, placeholder: " Last Name", label: false, input_html: { class: "form-control" } %>
-        <%= f.input :email, placeholder: " Email (required)", label: false, input_html: { class: "form-control" }, required: true %>
-        <%= f.input :password, placeholder: " Password (required)", label: false, input_html: { class: "form-control" }, required: true %>
-        <%= f.input :password_confrimation, placeholder: " Password Confirmation (required)", label: false, input_html: { class: "form-control" }, required: true %>
+        <%= f.input :first_name, placeholder:t('first_name'), label: false, input_html: { class: "form-control" } %>
+        <%= f.input :last_name, placeholder:  t('last_name'), label: false, input_html: { class: "form-control" } %>
+        <%= f.input :email, placeholder: t('email'), label: false, input_html: { class: "form-control" }, required: true %>
+        <%= f.input :password, placeholder: t('password_required'), label: false, input_html: { class: "form-control" }, required: true %>
+        <%= f.input :password_confrimation, placeholder:t('password_confirmation_required'), label: false, input_html: { class: "form-control" }, required: true %>
         <div>
-          <div style="float:left"><%= f.collection_select :location_id, locations, :id, :name, { include_blank: true, prompt: 'Select location' }, class: 'btn btn-default dropdown-toggle' %></div>
-          <div style="float:right"><%= f.input :admin, as: :boolean, class: 'radio' %></div>
+          <div style="float:left"><%= f.collection_select :location_id, locations, :id, :name, { include_blank: true, prompt: t('select_location') }, class: 'btn btn-default dropdown-toggle' %></div>
+          <div style="float:right"><%= f.input :admin, label: t('admin'), as: :boolean, class: 'radio' %></div>
         </div>
       <% end %>
     </div>
     <div class="actions">
       <%= f.actions do %>
-        <%= f.action :submit, as: :button, button_html: { class: "btn btn-default" }, action: :create %>
-        <%= f.action :cancel, as: :link %>
+        <%= f.action :submit, label:t('create_user'), as: :button, button_html: { class: "btn btn-default" }, action: :create %>
+        <%= f.action :cancel, label:t('cancel_user'), as: :link %>
       <% end %>
     </div>
   <% end %>

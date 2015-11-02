@@ -7,11 +7,11 @@
     <td><%= link_to book.location.name, location_path(book.location) if book.location %></td>
     <td>
       <% if book.borrowed? && book.borrower != current_user%>
-        Borrowed
+        <% t('borrowed') %>
       <% elsif book.borrower == current_user %>
-        <%= button_to 'Return book', { action: :check_in, controller: :books, id: book, method: :post }, data: { confirm: 'Please add the book back to the shelf, thank you!' }, class: 'btn btn-default' %>
+        <%= button_to t('return_book'), { action: :check_in, controller: :books, id: book, method: :post }, data: { confirm: t('thanks_return_book') }, class: 'btn btn-default' %>
       <% else %>
-        <%= button_to "Check out", { action: :check_out, controller: :books, id: book, method: :post }, data: { confirm: 'Great! Please click "ok" to confirm book checkout' }, class: 'btn btn-primary' %>
+        <%= button_to t('check_out'), { action: :check_out, controller: :books, id: book, method: :post }, data: { confirm: t('confirm_checkout') }, class: 'btn btn-primary' %>
       <% end %>
     </td>
 </tr>
