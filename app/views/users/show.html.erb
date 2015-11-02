@@ -1,15 +1,15 @@
 <br>
 <div class="row">
   <div class="col-md-8">
-  <h1 class="text-center">Book currently checked out</h1>
+  <h1 class="text-center"><%= t('book_currently_checked_out')%></h1>
   <br>
     <table class="table table- well">
       <thead>
         <tr>
-          <th>Title and subtitle</th>
-          <th>Author</th>
-          <th>Checked out</th>
-          <th>Time with book</th>
+          <th><%= t('title_and_subtitle')%></th>
+          <th><%= t('author')%></th>
+          <th><%= t('check_out')%></th>
+          <th><%= t('time_with_book') %></th>
         </tr>
       </thead>
       <% @user.books_checked_out.each do |book| %>
@@ -24,15 +24,15 @@
       <% end %>
     </table>
     <br>
-    <h2 class="text-center">Check out history</h2>
+    <h2 class="text-center"><%= t('check_out_history')%></h2>
     <br>
     <table class="table table-hover well">
       <thead>
         <tr>
-          <th>Title and subtitle</th>
-          <th>Author</th>
-          <th>Checked out</th>
-          <th>Checked in</th>
+          <th><%= t('title_and_subtitle')%></th>
+          <th><%= t('author')%></th>
+          <th><%= t('check_out')%></th>
+          <th><%= t('checked_in_at') %></th>
         </tr>
       </thead>
       <% @user.books_borrowed.each do |book| %>
@@ -51,13 +51,12 @@
     <div><%= render partial: 'users/profile_image' %></div>
     <h2 class="text-center"><%= current_user.admin? ? link_to(@user.name, edit_users_admin_path) : @user.name %></h2>
     <h4 class="text-center"><%= @user.email %></h4><br>
-    <h4>Location: <%= @user.location.name if @user.location %></h4>
+    <h4> <%= t('location') %>: <%= @user.location.name if @user.location %></h4>
     <div class="well">
-      <h4>Books contributed:</h4>
+      <h4><%= t('books_contributed') %>:</h4>
       <% @user.books_owned.each do |book| %>
         <p><%= link_to book.title, book_path(book.id) %> by <%= book.author_name %></p>
       <% end %>
     </div>
   </div>
 </div>
-

@@ -5,8 +5,8 @@
     <% if current_user.admin? %>
     <div class="text-center">
       <div class="btn-group">
-        <%= link_to 'Edit book details', edit_book_path(@book), class: 'btn btn-default' %>
-        <%= link_to 'Delete', book_path(@book), method: :delete, class: 'btn btn-danger' %>
+        <%= link_to t('edit_book_detail'), edit_book_path(@book), class: 'btn btn-default' %>
+        <%= link_to t('delete'), book_path(@book), method: :delete, class: 'btn btn-danger' %>
       </div>
     </div>
     <% end %>
@@ -35,10 +35,12 @@
     <%# end %>
 
     <% if @book.owner %>
-    <h5><%= link_to @book.owner.name, users_admin_path(@book.owner) %> contributed this book to the library</h5>
+    <h5><%= link_to @book.owner.name, users_admin_path(@book.owner) %> <%= t('contributed_book_to_library')%></h5>
     <% end %>
     <br>
+<!--
       <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Check for ebook versions of this title at the Los Angeles public library <a href="http://ls2pac.lapl.org/?section=search&term=isbn:<%= @book.isbn %>" target='new_window'>here!</a></p><br>
+-->
     <% if @book.borrowed? && @book.borrower != current_user%>
       This book is currently borrowed by <%= link_to @book.borrower.name, users_admin_path(@book.borrower) %>
       <% if current_user.try(:admin?) && @borrower %>
