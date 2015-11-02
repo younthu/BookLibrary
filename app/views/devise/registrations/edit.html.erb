@@ -1,18 +1,18 @@
 <div class="col-md-12 text-center">
   <h2>
-    My Profile
+    <%= t('my_profile')%>
   </h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "col-md-4 col-md-offset-1" }) do |f| %>
     <%= devise_error_messages! %>
     <br>
     <div class="form-group">
-      <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control" %>
+      <%= f.text_field :first_name, autofocus: true, placeholder: t('first_name'), class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
-    </div>    
+      <%= f.text_field :last_name, placeholder: t('last_name'), class: "form-control" %>
+    </div>
     <div class="form-group">
-      <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+      <%= f.email_field :email, placeholder: t('email'), class: "form-control" %>
     </div>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>
@@ -20,26 +20,26 @@
       </div>
     <% end %>
     <div class="form-group">
-      <small><i>(leave blank if you don't want to change it)</i></small>
+      <small><i><%= t('leave_blank_if_do_not_change')%></i></small>
       <br/>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: t('password'), class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation", class: "form-control" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('password_confirmation'), class: "form-control" %>
     </div>
     <div class="form-group">
-      <small><i>(we need your current password to confirm your changes)</i></small>
+      <small><i><%= t('we_need_password_to_confirm_your_changes')%></i></small>
       <br/>
-      <%= f.password_field :current_password, autocomplete: "off", placeholder: "Current password", class: "form-control" %>
+      <%= f.password_field :current_password, autocomplete: "off", placeholder: t('current_password'), class: "form-control" %>
     </div>
     <br>
     <div class="actions">
-      <%= f.submit "Update", class: "btn btn-default" %>
+      <%= f.submit t('update'), class: "btn btn-default" %>
     </div>
   <% end %>
-  <h3>Delete your account</h3>
+  <h3><%= t('delete_your_account') %></h3>
   <p>
-    Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-default" %>
+    <%= t('unhappy')%>? <%= button_to t('delete_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-default" %>
   </p>
-  <%= link_to "Back", :back %>
+  <%= link_to t('back'), :back %>
 </div>
