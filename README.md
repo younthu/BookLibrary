@@ -49,7 +49,7 @@ brew install elasticsearch
 Index book
 
 `
-\# Go to rails console
+ Go to rails console
 
 Book.reindex
 `
