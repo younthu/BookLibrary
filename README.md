@@ -26,7 +26,10 @@ BookLibrary is a Ruby on Rails application to manage a library of items that are
 
 In ubuntu, start elasticsearch.
 `
- sudo /etc/init.d/elasticsearch restart
+ apt-get install openjdk-7-jre-headless
+ sudo /etc/init.d/elasticsearch restart 
+ #or
+ sudo service elasticsearch restart
 `
 
 install elasticsearch
