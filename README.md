@@ -19,3 +19,22 @@ BookLibrary is a Ruby on Rails application to manage a library of items that are
 
 ## Deployment instructions
 1. keep private keys in a <tt>local_env.yml</tt> file in the config directory (do not include in commits)
+2. 
+
+
+## Elasticsearch
+
+In ubuntu, start elasticsearch.
+`
+ sudo /etc/init.d/elasticsearch restart
+`
+
+install elasticsearch
+
+http://www.unixmen.com/install-elasticsearch-ubuntu-14-04/
+
+
+Mac, install
+`
+brew install elasticsearch
+`
