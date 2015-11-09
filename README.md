@@ -27,8 +27,11 @@ BookLibrary is a Ruby on Rails application to manage a library of items that are
 In ubuntu, start elasticsearch.
 `
  apt-get install openjdk-7-jre-headless
+ 
  sudo /etc/init.d/elasticsearch restart 
+ 
  #or
+ 
  sudo service elasticsearch restart
 `
 
@@ -38,6 +41,15 @@ http://www.unixmen.com/install-elasticsearch-ubuntu-14-04/
 
 
 Mac, install
+
 `
 brew install elasticsearch
+`
+
+Index book
+
+`
+\# Go to rails console
+
+Book.reindex
 `
