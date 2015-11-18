@@ -20,7 +20,7 @@ zh-CN:
   description: "描述"
   select_book_owner: "选择书本所有者"
   select_location: "选择地点"
-  status_with_question_mark: "状态?"
+  status_with_question_mark: "操作"
   title: "书名"
   author: "作者"
   location: "地点"
@@ -125,3 +125,7 @@ zh-CN:
   location_deleted: "地点信息已删除"
   submit: "提交"
   still_reading: "阅读中..."
+  views:
+    pagination:
+        previous: "上一页"
+        next: "下一页"

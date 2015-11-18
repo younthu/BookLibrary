@@ -19,7 +19,7 @@
           <span class="icon-bar" style="background-color: grey"></span>
           <span class="icon-bar" style="background-color: grey"></span>
         </button>
-        <a class="navbar-brand" href="#"><%= t('library')%></a>
+        <a class="navbar-brand" href="<%= request.base_url %>"><%= t('library')%></a>
       </div>
       <% if user_signed_in? %>
         <%= render :partial => "layouts/user_nav" %>

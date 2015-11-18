@@ -42,7 +42,7 @@ en:
   description: "Description"
   select_book_owner: "Select book owner"
   select_location: "Select location"
-  status_with_question_mark: "Status?"
+  status_with_question_mark: "Action"
   title: "Title"
   author: "Author"
   location: "Location"
@@ -147,3 +147,7 @@ en:
   location_deleted: "Location has been deleted"
   submit: "submit"
   still_reading: "Still reading..."
+  views:
+    pagination:
+        previous: "Previous"
+        next: "Next"
