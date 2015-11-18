@@ -25,14 +25,17 @@
       <%= image_tag "http://www.speakers-pro.com/wp-content/uploads/2014/04/no-cover-placeholder.jpg" %>
     <%# end %>
     <h5>ISBN: <%= @book.isbn %></h5>
+    <% if false %>
     <%# if @links.reviews_link %>
       <h5><a href=
         <%#= @links.reviews_link %>
         target='new_window'> Reviews</a></h5>
+
     <%# end %>
     <%# if @links.marketplace_link %>
       <h5><a href= <%#= @links.marketplace_link %> target='new_window'>Buy on Amazon</a></h5>
     <%# end %>
+    <% end %>
 
     <% if @book.owner %>
     <h5><%= link_to @book.owner.name, users_admin_path(@book.owner) %> <%= t('contributed_book_to_library')%></h5>
@@ -42,11 +45,11 @@
       <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Check for ebook versions of this title at the Los Angeles public library <a href="http://ls2pac.lapl.org/?section=search&term=isbn:<%= @book.isbn %>" target='new_window'>here!</a></p><br>
 -->
     <% if @book.borrowed? && @book.borrower != current_user%>
-      This book is currently borrowed by <%= link_to @book.borrower.name, users_admin_path(@book.borrower) %>
+       <%= link_to t('book_currently_checked_out_by', borrower_name: @book.borrower.name), users_admin_path(@book.borrower) %>
       <% if current_user.try(:admin?) && @borrower %>
         <div class="well">
-        <h4>Admin only</h4>
-        <%= button_to "Return book for #{@borrower.name}", { action: :check_in_on_behalf_of, id: @book.id, method: :post }, data: { confirm: 'Please add the book back to the shelf, thank you!' }, class: 'btn btn-default' %>
+        <h4><%= t('admin_only')%></h4>
+        <%= button_to t('return_book_for_someone', borrower_name: @borrower.name), { action: :check_in_on_behalf_of, id: @book.id, method: :post }, data: { confirm: t('thanks_return_book') }, class: 'btn btn-default' %>
         </div>
       <% end %>
     <% elsif @book.borrower == current_user %>
@@ -56,11 +59,11 @@
       <br>
       <% if current_user.try(:admin?) %>
         <div class="block-center well">
-          <h4>Admin only</h4><br>
+          <h4><%= t('admin_only')%></h4><br>
           <%= semantic_form_for @book, url: check_out_on_behalf_of_book_path do |f| %>
             <%= f.input :user_id, as: :select, label: false, collection: User.all(&:name), input_html: { class: "btn btn-default dropdown-toggle" } %>
             <%= f.actions do %>
-              <%= f.action :submit, as: :button, label: 'Check out book for user', button_html: { class: "btn btn-default" } %>
+              <%= f.action :submit, as: :button, label: t('check_out_book_for_user'), button_html: { class: "btn btn-default" } %>
             <% end %>
           <% end %>
       </div>

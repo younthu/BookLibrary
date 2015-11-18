@@ -25,10 +25,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      flash[:notice] = 'Book saved'
+      flash[:notice] = t('book_saved')
       redirect_to books_path
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = t('check_required_field')
       redirect_to new_book_path
     end
   end
@@ -41,17 +41,17 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    flash[:alert] = 'Book has been deleted'
+    flash[:alert] = t('book_has_been_deleted') 
     redirect_to books_path
   end
 
   def update
     @book.update(book_params)
     if @book.save
-      flash[:notice] = 'Book saved'
+      flash[:notice] = t('book_saved')
       redirect_to book_path(@book)
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = t('check_required_field')
       redirect_to new_book_path
     end
   end
@@ -60,14 +60,14 @@ class BooksController < ApplicationController
     current_user.check_out(@book)
     loan = Loan.where(user: current_user, book: @book, checked_in_at: nil).last
     Nb::Contacts.log_contact(loan, 'Book check-out')
-    flash[:notice] = "You have checked out #{@book.title}, hope you enjoy it!"
+    flash[:notice] = t('you_have_checkedout_somebook', book_title: @book.title)
     redirect_to books_path
   end
 
   def check_out_on_behalf_of
     user = User.find(params[:book]['user_id'])
     user.check_out(@book)
-    flash[:notice] = "You have checked out #{@book.title} for #{user.name}"
+    flash[:notice] = t('checkout_somebook_for_someone', book_title: @book.title, borrower_name: user.name)
     redirect_to books_path
   end
 
@@ -75,13 +75,13 @@ class BooksController < ApplicationController
     current_user.check_in(@book)
     loan = Loan.where(user: current_user, book: @book).last
     Nb::Contacts.log_contact(loan, 'Book check-in')
-    flash[:notice] = "You have checked in #{@book.title}, thanks!"
+    flash[:notice] = t('you_have_checkedin_somebook', book_title: @book.title)
     redirect_to books_path
   end
 
   def check_in_on_behalf_of
     @borrower.check_in(@book)
-    flash[:notice] = "Thank you for returning #{@book.title} for #{@borrower.name}"
+    flash[:notice] = t('thanks_for_return_boookname_for_borrowername', book_title: @book.title, borrower_name: @borrower.name)
     redirect_to books_path
   end
   private

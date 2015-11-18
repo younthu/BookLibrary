@@ -14,10 +14,10 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      flash[:notice] = 'Location saved'
+      flash[:notice] = t('location_saved')
       redirect_to locations_path
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = t('check_required_field')
       redirect_to new_location_path
     end
   end
@@ -31,17 +31,17 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    flash[:alert] = 'Location has been deleted'
+    flash[:alert] = t('location_deleted')
     redirect_to locations_path
   end
 
   def update
     @location.update(location_params)
     if @location.save
-      flash[:notice] = 'Location saved'
+      flash[:notice] = t('location_saved')
       redirect_to location_path(@location)
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = t('location_deleted')
       redirect_to locations_path
     end
   end

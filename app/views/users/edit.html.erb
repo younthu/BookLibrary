@@ -1,6 +1,6 @@
 <div class="col-md-12 text-center">
   <h2>
-    <p><%= @user.name %>'s Profile</p>
+    <p><%= @user.name %><%= t('someone_s_profile')%></p>
   </h2><br>
   <%= form_for( @user, url: users_admin_path(@user), html: { method: :put, class: "col-md-4 col-md-offset-1" }) do |f| %>
     <br>
@@ -18,10 +18,10 @@
     </div>
     <br>
     <div class="actions">
-      <%= f.submit "Update", label:t('update'), class: "btn btn-default" %>
+      <%= f.submit t('update'), class: "btn btn-default" %>
     </div>
   <% end %>
-  <h3>Delete account</h3>
+  <h3><%= t('delete_account')%></h3>
   <p>
     <%= button_to t('delete_account'), users_admin_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-default" %>
   </p>

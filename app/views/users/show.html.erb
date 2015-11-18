@@ -41,7 +41,7 @@
           <td><%= link_to book.title, book_path(book.id) %></td>
           <td><%= book.author_name %></td>
           <td><%= time_tag(loan(@user, book).checked_out_at) %></td>
-          <td><%= loan(@user, book).checked_in_at? ? time_tag(loan(@user, book).checked_in_at) : 'Still reading...' %></td>
+          <td><%= loan(@user, book).checked_in_at? ? time_tag(loan(@user, book).checked_in_at) : t('still_reading') %></td>
         </tr>
       </tbody>
       <% end %>

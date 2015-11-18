@@ -15,8 +15,8 @@
     </div>
     <div class="actions inline-block">
       <%= f.actions do %>
-        <%= f.action :submit, as: :button, button_html: { class: "btn btn-default" }  %>
-        <%= f.action :cancel, as: :link, html: { class: "btn btn-default" } %>
+        <%= f.action :submit, label: t('submit'), as: :button, button_html: { class: "btn btn-default" }  %>
+        <%= f.action :cancel, label: t('reset'), as: :link, html: { class: "btn btn-default" } %>
       <% end %>
     </div>
   <% end %>

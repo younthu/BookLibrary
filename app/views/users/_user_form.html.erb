@@ -1,7 +1,7 @@
 <div class="col-md-4 col-md-offset-4 text-center">
   <%= semantic_form_for(@user, url: users_admin_index_path, class: 'formtastic') do |f| %>
     <div class="form-group">
-      <%= f.inputs name: "User", class: "text-center" do %>
+      <%= f.inputs name: t('user'), class: "text-center" do %>
       <br>
         <%= f.input :first_name, placeholder:t('first_name'), label: false, input_html: { class: "form-control" } %>
         <%= f.input :last_name, placeholder:  t('last_name'), label: false, input_html: { class: "form-control" } %>

@@ -15,8 +15,8 @@
     </div>
     <div class="actions">
       <%= f.actions do %>
-        <%= f.action :submit, :as => :button, button_html: { class: "btn btn-default" }  %>
-        <%= f.action :cancel, :as => :link %>
+        <%= f.action :submit, label: t('create_book'), :as => :button, button_html: { class: "btn btn-default" }  %>
+        <%= f.action :cancel, label: t('reset'), :as => :link %>
       <% end %>
     </div>
   <% end %>

@@ -53,7 +53,7 @@ RSpec.describe UsersController, type: :controller do
         end
         it 're-renders the :new template' do
           post :create, user: FactoryGirl.attributes_for(:user, password: nil)
-          expect(flash[:alert]).to eq('There\'s an error - please check the required fields')
+          expect(flash[:alert]).to eq(t('check_required_field'))
           expect(response).to redirect_to(new_users_admin_path)
         end
       end

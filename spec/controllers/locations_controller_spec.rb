@@ -52,7 +52,7 @@ RSpec.describe LocationsController, type: :controller do
       end
       it 'redirects to locations_path' do
         post :create, location: FactoryGirl.attributes_for(:location)
-        expect(flash[:notice]).to eq('Location saved')
+        expect(flash[:notice]).to eq(t('location_saved'))
         expect(response).to redirect_to(locations_path)
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe LocationsController, type: :controller do
       end
       it 're-renders the :new template' do
         post :create, location: FactoryGirl.attributes_for(:location, name: nil)
-        expect(flash[:alert]).to eq('There\'s an error - please check the required fields')
+        expect(flash[:alert]).to eq(t('check_required_field'))
         expect(response).to redirect_to(new_location_path)
       end
     end

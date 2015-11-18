@@ -17,10 +17,10 @@ class UsersController < ApplicationController
   def update
     @user.update_attributes(update_user_params)
     if @user.save
-      flash[:notice] = 'User saved'
+      flash[:notice] = t('user_saved')
       redirect_to users_admin_path(@user)
     else
-      flash[:alert] = 'There\'s an error - please check the required fields'
+      flash[:alert] = t('check_required_field')
       redirect_to users_admin_path(@user)
     end
   end
@@ -29,10 +29,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       #Nb::People.add_tag(@user.email, 'Library_account_active')
-      flash[:notice] = 'User saved'
+      flash[:notice] = t('user_saved')
       redirect_to users_admin_index_path
     else
-      flash[:alert] = 'There\'s an error - please check the required fields' + @user.errors.full_messages[0]
+      flash[:alert] = t('check_required_field') +":"+ @user.errors.full_messages[0]
       puts @user.errors
       redirect_to new_users_admin_path
     end
@@ -42,14 +42,14 @@ class UsersController < ApplicationController
     @user.make_admin
     #FIXME: bring Nb back
     #Nb::People.add_tag(@user.email, 'Library_Admin')
-    flash[:notice] = "#{@user.name} is now an admin"
+    flash[:notice] = t('someone_is_now_admin', user_name: @user.name) #{}"#{@user.name} is now an admin"
     redirect_to users_admin_index_path
   end
 
   def remove_admin
     @user.remove_admin
     #Nb::People.remove_tag(@user.email, 'Library_Admin')
-    flash[:notice] = "#{@user.name} is no longer an admin"
+    flash[:notice] = t('someone_is_no_longer_admin', user_name: @user.name) #{}"#{@user.name} is no longer an admin"
     redirect_to users_admin_index_path
   end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     #Nb::People.remove_tag(@user.email, 'Library_account_active')
     #Nb::People.add_tag(@user.email, 'Library_account_deleted')
     @user.destroy
-    flash[:notice] = 'User has been deleted'
+    flash[:notice] = t('user_has_been_deleted')#'User has been deleted'
     redirect_to users_admin_index_path
   end
 
