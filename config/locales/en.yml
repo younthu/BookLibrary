@@ -147,7 +147,13 @@ en:
   location_deleted: "Location has been deleted"
   submit: "submit"
   still_reading: "Still reading..."
+  add_recommendation: "Recommend book"
+  recommendee: "Referee"
   views:
     pagination:
         previous: "Previous"
         next: "Next"
+  book_name: "Book name"
+  recommendations: "Recommendations"
+  recommendation: "Recommendation"
+  recommendation_saved: "Recommendation saved"

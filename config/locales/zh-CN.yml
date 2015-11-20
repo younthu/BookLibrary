@@ -125,7 +125,13 @@ zh-CN:
   location_deleted: "地点信息已删除"
   submit: "提交"
   still_reading: "阅读中..."
+  add_recommendation: "推荐图书"
+  recommendee: "推荐人"
   views:
     pagination:
         previous: "上一页"
         next: "下一页"
+  book_name: "图书名称"
+  recommendations: "推荐"
+  recommendation: "推荐图书"
+  recommendation_saved: "推荐已保存"
