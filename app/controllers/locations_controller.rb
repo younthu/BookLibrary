@@ -41,7 +41,7 @@ class LocationsController < ApplicationController
       flash[:notice] = t('location_saved')
       redirect_to location_path(@location)
     else
-      flash[:alert] = t('location_deleted')
+      flash[:alert] = t('check_required_field')
       redirect_to locations_path
     end
   end
